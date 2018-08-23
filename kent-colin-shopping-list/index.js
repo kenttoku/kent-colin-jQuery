@@ -14,14 +14,13 @@ function handleAddItem() {
 
 function handleCheckItem() {
   $('.shopping-list').on('click', 'button.shopping-item-toggle', function(event) {
-    const target = $(event.currentTarget).closest('li').find('span.shopping-item');
-    target.toggleClass('shopping-item__checked');
+    $(event.currentTarget).closest('li').find('span.shopping-item').toggleClass('shopping-item__checked');
   });
 }
 
 function handleDeleteItem() {
   $('.shopping-list').on('click', '.shopping-item-delete', function (event) {
-    $(event.currentTarget).closest('li').remove('li');
+    $(event.currentTarget).closest('li').remove();
   });
 }
 
