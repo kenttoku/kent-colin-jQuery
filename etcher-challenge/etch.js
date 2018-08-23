@@ -12,16 +12,17 @@ $(() => {
 
 
 function changeCell() {
-  $('.grid').on('mouseover', '.cell', function (event) {
-    $(event.currentTarget).addClass('active')
+  $('.cell').on('mouseover', function (event) {
+    $(event.currentTarget).addClass('active');
     console.log('hi, kent.  It\'s been fun! :)');
   })
 }
 
 function reDraw () {
-  $('button').on('click', function (event) {
+  $('section').on('click', 'button', function (event) {
     createAndPlaceRows(8);
-  })
+    changeCell();
+  });
 }
 
 //When the user hovers over a grid cell, the "active" class should be permanently applied to the cell
