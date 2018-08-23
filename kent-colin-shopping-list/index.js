@@ -34,13 +34,11 @@ function main() {
     // toggle span class
     const target = $(event.currentTarget).closest('li').find('span.shopping-item');
     target.toggleClass('shopping-item__checked');
-    console.log(target);
   });
 
   $('.shopping-list').on('click', ".shopping-item-delete", function (event) {
     const listItem = $(event.currentTarget).closest('li');
     listItem.remove('li');
-    console.log();
   })
 }
 
