@@ -2,6 +2,29 @@
 // check and uncheck items on the list by clicking the "Check" button
 // permanently remove items from the list
 
+function handleAddItem() {
+  $('#js-shopping-list-form').submit(function(event) {
+    event.preventDefault();
+
+    const entry = $('.js-shopping-list-entry').val();
+    addItem(entry);
+    $('input.js-shopping-list-entry').val('');
+  });
+}
+
+function handleCheckItem() {
+  $('.shopping-list').on('click', 'button.shopping-item-toggle', function(event) {
+    const target = $(event.currentTarget).closest('li').find('span.shopping-item');
+    target.toggleClass('shopping-item__checked');
+  });
+}
+
+function handleDeleteItem() {
+  $('.shopping-list').on('click', '.shopping-item-delete', function (event) {
+    $(event.currentTarget).closest('li').remove('li');
+  });
+}
+
 function addItem(entry) {
   const htmlElement = `
   <li>
@@ -21,27 +44,9 @@ function addItem(entry) {
 }
 
 function main() {
-  $('#js-shopping-list-form').submit(function(event) {
-    event.preventDefault();
-
-    const entry = $('.js-shopping-list-entry').val();
-    addItem(entry);
-    $('input.js-shopping-list-entry').val('');
-  })
-
-  $('.shopping-list').on('click', 'button.shopping-item-toggle', function(event) {
-    // select the food item
-    // toggle span class
-    const target = $(event.currentTarget).closest('li').find('span.shopping-item');
-    target.toggleClass('shopping-item__checked');
-  });
-
-  $('.shopping-list').on('click', ".shopping-item-delete", function (event) {
-    const listItem = $(event.currentTarget).closest('li');
-    listItem.remove('li');
-  })
+  handleAddItem();
+  handleCheckItem();
+  handleDeleteItem();
 }
-
-
 
 $(main);
