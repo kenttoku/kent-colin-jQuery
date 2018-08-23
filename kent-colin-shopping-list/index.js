@@ -7,8 +7,10 @@ function handleAddItem() {
     event.preventDefault();
 
     const entry = $('.js-shopping-list-entry').val();
-    addItem(entry);
     $('input.js-shopping-list-entry').val('');
+
+    const itemHTML = getItemHTML(entry);
+    $('.shopping-list').append(itemHTML);
   });
 }
 
@@ -24,8 +26,8 @@ function handleDeleteItem() {
   });
 }
 
-function addItem(entry) {
-  const htmlElement = `
+function getItemHTML(entry) {
+  return `
   <li>
     <span class="shopping-item">${entry}</span>
     <div class="shopping-item-controls">
@@ -38,8 +40,6 @@ function addItem(entry) {
     </div>
   </li>
   `;
-
-  $('.shopping-list').append(htmlElement);
 }
 
 function main() {
