@@ -2,6 +2,22 @@
 // check and uncheck items on the list by clicking the "Check" button
 // permanently remove items from the list
 
+function getItemHTML(entry) {
+  return `
+  <li>
+    <span class="shopping-item">${entry}</span>
+    <div class="shopping-item-controls">
+      <button class="shopping-item-toggle">
+        <span class="button-label">check</span>
+      </button>
+      <button class="shopping-item-delete">
+        <span class="button-label">delete</span>
+      </button>
+    </div>
+  </li>
+  `;
+}
+
 function handleAddItem() {
   $('#js-shopping-list-form').submit(function(event) {
     event.preventDefault();
@@ -24,22 +40,6 @@ function handleDeleteItem() {
   $('.shopping-list').on('click', '.shopping-item-delete', function (event) {
     $(event.currentTarget).closest('li').remove();
   });
-}
-
-function getItemHTML(entry) {
-  return `
-  <li>
-    <span class="shopping-item">${entry}</span>
-    <div class="shopping-item-controls">
-      <button class="shopping-item-toggle">
-        <span class="button-label">check</span>
-      </button>
-      <button class="shopping-item-delete">
-        <span class="button-label">delete</span>
-      </button>
-    </div>
-  </li>
-  `;
 }
 
 function main() {
