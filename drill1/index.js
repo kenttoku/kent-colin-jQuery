@@ -1,5 +1,3 @@
-console.log('hi');
-
 function selectCat() {
   $('.thumbnail').on('click', event => {
     const largeCat = $(event.currentTarget).find('img').attr('src');
@@ -7,7 +5,7 @@ function selectCat() {
     $('div.hero img').attr('src', largeCat);
     
     $('div.hero img').attr('alt', largeCatAlt);
-  })
+  });
   
 }
 
