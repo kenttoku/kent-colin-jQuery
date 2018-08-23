@@ -26,7 +26,8 @@ function main() {
 
     const entry = $('.js-shopping-list-entry').val();
     addItem(entry);
-  });
+    $('input.js-shopping-list-entry').val('');
+  })
 
   $('.shopping-list').on('click', 'button.shopping-item-toggle', function(event) {
     // select the food item
@@ -35,6 +36,14 @@ function main() {
     target.toggleClass('shopping-item__checked');
     console.log(target);
   });
+
+  $('.shopping-list').on('click', ".shopping-item-delete", function (event) {
+    const listItem = $(event.currentTarget).closest('li');
+    listItem.remove('li');
+    console.log();
+  })
 }
+
+
 
 $(main);
