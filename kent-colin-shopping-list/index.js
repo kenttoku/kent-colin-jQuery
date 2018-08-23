@@ -2,10 +2,6 @@
 // check and uncheck items on the list by clicking the "Check" button
 // permanently remove items from the list
 
-// function() {
-  
-// }
-
 function addItem(entry) {
   const htmlElement = `
   <li>
