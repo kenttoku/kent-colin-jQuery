@@ -32,13 +32,13 @@ function handleAddItem() {
 
 function handleCheckItem() {
   $('.shopping-list').on('click', 'button.shopping-item-toggle', function(event) {
-    $(event.currentTarget).closest('li').find('span.shopping-item').toggleClass('shopping-item__checked');
+    $(this).closest('li').find('span.shopping-item').toggleClass('shopping-item__checked');
   });
 }
 
 function handleDeleteItem() {
   $('.shopping-list').on('click', '.shopping-item-delete', function (event) {
-    $(event.currentTarget).closest('li').remove();
+    $(this).closest('li').remove();
   });
 }
 
